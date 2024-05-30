@@ -24,7 +24,7 @@ export class WebScrapingController {
 
   @HttpCode(204)
   @Post()
-  async SendMessage(@Body() body: MessageForWebScrapingDto) {
+  async sendMessage(@Body() body: MessageForWebScrapingDto): Promise<void> {
     await this.commandBus.execute(new SendMessageForWebScrapingCommand(body));
   }
 }
