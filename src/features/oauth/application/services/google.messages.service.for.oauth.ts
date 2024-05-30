@@ -3,11 +3,11 @@ import axios from "axios";
 import { GmailConstant } from "src/common/const/gmail.const";
 
 @Injectable()
-export class GoogleMessagesService {
+export class GoogleMessagesServiceForOAuth {
     constructor() { }
 
     async getTenLastInMessage(googlAuthToken: string) {
-        return axios.get(GmailConstant.gmailUserMessage, {
+        return axios.get(GmailConstant.gmailUserMessageForOAuth, {
             headers: {
                 Authorization: `Bearer ${googlAuthToken}`,
             },
@@ -19,7 +19,7 @@ export class GoogleMessagesService {
     }
 
     async getMessageById(messageId: string, googlAuthToken: string) {
-        return axios.get(GmailConstant.gmailUserMessage + `/${messageId}`, {
+        return axios.get(GmailConstant.gmailUserMessageForOAuth + `/${messageId}`, {
             headers: {
                 Authorization: `Bearer ${googlAuthToken}`,
             },

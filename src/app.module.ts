@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { WebScrapingModule } from './features/web-scraping/web.scraping.module';
+import { OAuthModule } from './features/oauth/oauth.module';
+import { WebScrapingModule } from './features/web-scraping/web.scraping.moduel';
 
 @Module({
-  imports: [WebScrapingModule],
+  imports: [OAuthModule, WebScrapingModule],
   controllers: [AppController],
   providers: [AppService],
 })

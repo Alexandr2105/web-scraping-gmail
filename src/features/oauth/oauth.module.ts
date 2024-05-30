@@ -1,14 +1,14 @@
 import { Module } from "@nestjs/common";
 import { SharedModule } from "src/common/shared.module";
 import { OAuth2ForGoogleUseCase } from "./application/use-cases/oauth.for.google.use-case";
-import { GoogleMessagesService } from "./application/services/google.messages.service";
+import { GoogleMessagesServiceForOAuth } from "./application/services/google.messages.service.for.oauth";
 import { GetMessageInfoUseCase } from "./application/use-cases/get.message.info.use-case";
 import { SendMessageUseCase } from "./application/use-cases/send.message.use-case";
-import { WebScrapingController } from "./web.scraping.controller";
+import { OAuthController } from "./oauth.controller";
 
 @Module({
     imports: [SharedModule],
-    controllers: [WebScrapingController],
-    providers: [OAuth2ForGoogleUseCase, GoogleMessagesService, GetMessageInfoUseCase, SendMessageUseCase],
+    controllers: [OAuthController],
+    providers: [OAuth2ForGoogleUseCase, GoogleMessagesServiceForOAuth, GetMessageInfoUseCase, SendMessageUseCase],
 })
-export class WebScrapingModule { }
+export class OAuthModule { }

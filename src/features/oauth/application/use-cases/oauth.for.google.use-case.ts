@@ -22,7 +22,7 @@ export class OAuth2ForGoogleUseCase implements ICommandHandler<OAuth2ForGoogleCo
             redirect_uri: settings.REDIRECT_URL,
             grant_type: 'authorization_code',
         };
-        const tokenUrl = GmailConstant.tokenUrl;
+        const tokenUrl = GmailConstant.tokenUrlForOAuth;
 
         const oauthClient = await axios.post(tokenUrl, data).catch(() => {
             throw new BadRequestException([

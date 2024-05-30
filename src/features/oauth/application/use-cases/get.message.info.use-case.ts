@@ -1,6 +1,6 @@
 import { CommandHandler, ICommandHandler } from "@nestjs/cqrs";
 import { MessageInfoViewModelType } from "src/common/viewModels/message.info.view.model.type";
-import { GoogleMessagesService } from "../services/google.messages.service";
+import { GoogleMessagesServiceForOAuth } from "../services/google.messages.service.for.oauth";
 
 export class GetMessageInfoCommand {
     constructor(public readonly code: string) { }
@@ -8,7 +8,7 @@ export class GetMessageInfoCommand {
 
 @CommandHandler(GetMessageInfoCommand)
 export class GetMessageInfoUseCase implements ICommandHandler<GetMessageInfoCommand> {
-    constructor(private readonly googleMessageService: GoogleMessagesService) { }
+    constructor(private readonly googleMessageService: GoogleMessagesServiceForOAuth) { }
 
     async execute(command: GetMessageInfoCommand): Promise<MessageInfoViewModelType[]> {
         const googlAuthToken = command.code.split(' ')[1];

@@ -1,7 +1,7 @@
 import { Transform } from "class-transformer";
 import { IsEmail, Length } from "class-validator";
 
-export class MessageDto {
+export class MessageForWebScrapingDto {
     @Transform(({ value }) => String(value).trim())
     @Length(2, 50)
     subjectOfLetter: string;
@@ -12,7 +12,4 @@ export class MessageDto {
 
     @IsEmail()
     toEmail: string;
-
-    @IsEmail()
-    fromEmail: string;
 }

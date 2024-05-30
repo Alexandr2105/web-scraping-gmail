@@ -1,5 +1,6 @@
 export enum GmailConstant {
-    gmailUserMessage = "https://gmail.googleapis.com/gmail/v1/users/me/messages",
-    sendMessage = "https://gmail.googleapis.com/gmail/v1/users/me/messages/send",
-    tokenUrl = "https://oauth2.googleapis.com/token"
+    gmailUserMessageForOAuth = "https://gmail.googleapis.com/gmail/v1/users/me/messages",
+    sendMessageForOAuth = "https://gmail.googleapis.com/gmail/v1/users/me/messages/send",
+    tokenUrlForOAuth = "https://oauth2.googleapis.com/token",
+    gmailUrl = "https://mail.google.com/"
 }
